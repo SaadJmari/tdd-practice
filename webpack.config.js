@@ -27,7 +27,25 @@ module.exports = {
             {
                 test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
                 type: "asset/resource"
-            }
+            },
+            {
+                test: /\.jsx?$/,
+                exclude: ['node_modules'],
+                use: ['babel-loader'],
+            },
         ]
+    },
+    resolve: {
+        alias: {
+            config$: './configs/app-config.js',
+            react: './vendor/react-master',
+        },
+        extensions: ['.js', '.jsx'],
+        modules: [
+            'node_modules',
+            'bower_components',
+            'shared',
+            '/shared/vendor/modules',
+        ],
     }
 }
